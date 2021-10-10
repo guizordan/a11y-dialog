@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Dialog from "./Dialog";
+
+import "./App.css";
 
 function App() {
+  const [dialogOpened, setDialogOpened] = useState(false);
+
+  function openDialog() {
+    setDialogOpened(true);
+  }
+
+  function closeDialog() {
+    setDialogOpened(false);
+  }
+
+  function renderDialog() {
+    if (dialogOpened) {
+      return <Dialog onClose={closeDialog} />;
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-content">
+        <button className="open-dialog" onClick={openDialog}>
+          Abrir Modal
+        </button>
+      </div>
+      {renderDialog()}
     </div>
   );
 }
