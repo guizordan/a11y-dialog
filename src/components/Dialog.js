@@ -54,12 +54,25 @@ export default function Dialog({
           </button>
         </div>
         <div className="dialog-content">
-          <Input value={firstName} onChange={changeFirstName} label="Nome" />
-          <Input value={lastName} onChange={changeLastName} label="Sobrenome" />
+          <Input
+            value={firstName}
+            id="first-name"
+            onChange={changeFirstName}
+            label="Nome"
+            name="firstName"
+          />
+          <Input
+            id="first-name"
+            value={lastName}
+            onChange={changeLastName}
+            label="Sobrenome"
+            name="lastName"
+          />
         </div>
         <div className="dialog-footer">
           <button
             type="submit"
+            disabled={!firstName && !lastName}
             className="confirm"
             onClick={createUser}
             onKeyDown={onRegisterButtonKeyDown}
