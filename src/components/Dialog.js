@@ -60,11 +60,11 @@ export default function Dialog({
         <div className="dialog-header">
           <h1 id="register-user-label">Cadastrar Usuário</h1>
           <button
-            // onKeyDown={onCloseButtonKeyDown}
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Fechar"
             className="close-dialog"
+            // onKeyDown={onCloseButtonKeyDown}
           >
             <div className="ico-times" role="img"></div>
           </button>
