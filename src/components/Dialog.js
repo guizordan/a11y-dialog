@@ -8,6 +8,7 @@ export default function Dialog({
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const closeButtonRef = useRef(null);
+  const registerButtonRef = useRef(null);
 
   function changeFirstName(event) {
     setFirstName(event.target.value);
@@ -30,9 +31,16 @@ export default function Dialog({
   }
 
   function onRegisterButtonKeyDown(event) {
-    if (event.key === "Tab") {
+    if (event.key === "Tab" && !event.shiftKey) {
       event.preventDefault();
       closeButtonRef.current?.focus();
+    }
+  }
+
+  function onCloseButtonKeyDown(event) {
+    if (event.key === "Tab" && event.shiftKey) {
+      event.preventDefault();
+      registerButtonRef.current?.focus();
     }
   }
 
@@ -42,9 +50,16 @@ export default function Dialog({
 
   return (
     <div onKeyDown={onKeyDown} className="dialog-container">
-      <div className="dialog" role="dialog">
+      <div
+        className="dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="register-user-label"
+      >
         <div className="dialog-header">
+          <h1 id="register-user-label">Cadastrar Usuário</h1>
           <button
+            onKeyDown={onCloseButtonKeyDown}
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Fechar"
@@ -62,8 +77,8 @@ export default function Dialog({
             name="firstName"
           />
           <Input
-            id="first-name"
             value={lastName}
+            id="last-name"
             onChange={changeLastName}
             label="Sobrenome"
             name="lastName"
@@ -71,8 +86,8 @@ export default function Dialog({
         </div>
         <div className="dialog-footer">
           <button
+            ref={registerButtonRef}
             type="submit"
-            disabled={!firstName && !lastName}
             className="confirm"
             onClick={createUser}
             onKeyDown={onRegisterButtonKeyDown}
