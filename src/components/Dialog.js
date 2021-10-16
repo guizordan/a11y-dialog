@@ -44,13 +44,11 @@ export default function Dialog({
     }
   }
 
-  useEffect(() => {
-    closeButtonRef.current?.focus();
-  }, []);
-
   return (
     <div onKeyDown={onKeyDown} className="dialog-container">
       <div
+        autoFocus
+        tabIndex="0"
         className="dialog"
         role="dialog"
         aria-modal="true"
@@ -87,7 +85,6 @@ export default function Dialog({
         <div className="dialog-footer">
           <button
             ref={registerButtonRef}
-            type="submit"
             className="confirm"
             onClick={createUser}
             onKeyDown={onRegisterButtonKeyDown}

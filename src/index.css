@@ -107,7 +107,7 @@ label {
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 24px;
 }
 
-.ico-times:before{ content: "\2716"; color: #706868}
+.ico-times:before{ content: "\2716"; color: black}
