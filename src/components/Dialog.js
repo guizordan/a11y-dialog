@@ -45,19 +45,22 @@ export default function Dialog({
   }
 
   return (
-    <div onKeyDown={onKeyDown} className="dialog-container">
+    <div
+      // onKeyDown={onKeyDown}
+      className="dialog-container"
+    >
       <div
-        autoFocus
-        tabIndex="0"
+        // autoFocus
+        // tabIndex="0"
+        // role="dialog"
+        // aria-modal="true"
+        // aria-labelledby="register-user-label"
         className="dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="register-user-label"
       >
         <div className="dialog-header">
           <h1 id="register-user-label">Cadastrar Usuário</h1>
           <button
-            onKeyDown={onCloseButtonKeyDown}
+            // onKeyDown={onCloseButtonKeyDown}
             ref={closeButtonRef}
             onClick={onClose}
             aria-label="Fechar"
@@ -87,7 +90,7 @@ export default function Dialog({
             ref={registerButtonRef}
             className="confirm"
             onClick={createUser}
-            onKeyDown={onRegisterButtonKeyDown}
+            // onKeyDown={onRegisterButtonKeyDown}
           >
             Cadastrar
           </button>

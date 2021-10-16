@@ -9,8 +9,17 @@ export default function Input({
 }) {
   return (
     <>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} name={name} value={value} onChange={onChange} />
+      <label
+      // htmlFor={id}
+      >
+        {label}
+      </label>
+      <input
+        // id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
     </>
   );
 }

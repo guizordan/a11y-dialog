@@ -12,7 +12,7 @@ function App() {
 
   function closeDialog() {
     setDialogOpened(false);
-    registerUserButton.current?.focus();
+    // registerUserButton.current?.focus();
   }
 
   function onUserCreated(newUser) {
@@ -28,7 +28,10 @@ function App() {
   function renderCurrentUser() {
     if (currentUser.length) {
       return (
-        <p role="note" tabIndex="0">
+        <p
+        // role="note"
+        // tabIndex="0"
+        >
           Usuário cadastrado: <strong>{currentUser}</strong>
         </p>
       );
